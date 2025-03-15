@@ -66,8 +66,14 @@ function PopUp() {
     const notification = () =>  {
         setInterval( () => {
             currentTimeSpend += 30;
+            if (currentTimeSpend <= 59) {
             toast(`Used ${Math.floor(currentTimeSpend)} min`, {duration: 5000, icon: <MyImage />, position: "top-center", style: {display: 'flex',scale: 1.4, justifyContent: 'center', alignItems: 'center', gap: '15px'}});
-        }, timeToAppear);
+        } else if (currentTimeSpend % 60 === 0) {
+            toast(`Used ${Math.floor(currentTimeSpend / 60)}h`, {duration: 5000, icon: <MyImage />, position: "top-center", style: {display: 'flex',scale: 1.4, justifyContent: 'center', alignItems: 'center', gap: '15px'}});
+        } else {
+            toast(`Used ${Math.floor(currentTimeSpend / 60)}h and ${(currentTimeSpend % 60)} min`, {duration: 5000, icon: <MyImage />, position: "top-center", style: {display: 'flex',scale: 1.4, justifyContent: 'center', alignItems: 'center', gap: '15px'}});
+        }
+    },timeToAppear);
 };
 
     return (
