@@ -1,7 +1,9 @@
 import React from 'react';
 import { Toaster, toast } from 'sonner';
 import MyImage from '../MyImage/MyImage';
+
 let currentTimeSpend = 0;
+
 interface PopUpProps {
   onClick: () => void;
 }
@@ -23,7 +25,6 @@ const PopUp: React.FC<PopUpProps> = ({ onClick }) => {
 
   return (
     <div>
-      {/* <h1>{showPopUp ? showPopUp : "Hello"}</h1> */}
       <button onClick={notification}>Show Toast</button>
       <button onClick={onClick}>Click me</button>
       <Toaster />
