@@ -4,22 +4,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const onClick = async () => {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if (tab.id !== undefined) {
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        func: () => {
-          console.log("Hello from the page");
-        }
-      });
-    } else {
-      console.error("Tab ID is undefined");
-    }
-  };
-
+    const [tab] = await chrome.tabs.query({ active: true});
+    chrome.scripting.executeScript({
+      target: {tabId: tab.id!},
+      func: () => {
+        alert('Hello from the content script!');
+      }
+    });
+  }
   return (
     <>
-      <PopUp onClick={onClick} />
+      <PopUp />
+      <button onClick={onClick}>Apasa-ma</button>
     </>
   );
 }

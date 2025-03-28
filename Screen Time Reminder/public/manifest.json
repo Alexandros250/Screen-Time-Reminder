@@ -6,21 +6,10 @@
         "default_popup": "index.html"
     },
     "permissions": [
-        "scripting",
-        "tabs",
-        "notifications"
+        "scripting"
     ],
     "host_permissions": [
         "http://*/*",
         "https://*/*"
-    ],
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-            "matches": ["http://*/*", "https://*/*"],
-            "js": ["background.js"]
-        }
     ]
 }

@@ -4,13 +4,9 @@ import MyImage from '../MyImage/MyImage';
 
 let currentTimeSpend = 0;
 
-interface PopUpProps {
-  onClick: () => void;
-}
 
-const PopUp: React.FC<PopUpProps> = ({ onClick }) => {
+const PopUp: React.FC= () => {
   const timeToAppear: number = 5000;
-  const notification = () => {
     setInterval(() => {
       currentTimeSpend += 30;
       if (currentTimeSpend <= 59) {
@@ -21,12 +17,10 @@ const PopUp: React.FC<PopUpProps> = ({ onClick }) => {
         toast(`Used ${Math.floor(currentTimeSpend / 60)}h and ${(currentTimeSpend % 60)} min`, { duration: 5000, icon: <MyImage />, position: "top-center", style: { display: 'flex', scale: 1.4, justifyContent: 'center', alignItems: 'center', gap: '15px' } });
       }
     }, timeToAppear);
-  };
+
 
   return (
     <div>
-      <button onClick={notification}>Show Toast</button>
-      <button onClick={onClick}>Click me</button>
       <Toaster />
     </div>
   );
