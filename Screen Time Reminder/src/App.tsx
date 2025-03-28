@@ -4,18 +4,23 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const onClick = async () => {
-    const [tab] = await chrome.tabs.query({ active: true});
-    chrome.scripting.executeScript({
-      target: {tabId: tab.id!},
-      func: () => {
-        alert('Hello from the content script!');
-      }
-    });
+    function injectedFunction() {
+      return(
+      <>
+    <PopUp />
+      </>
+)}
+
+chrome.action.onClicked.addListener((tab) => {
+  chrome.scripting.executeScript({
+    target : {tabId : tab.id!},
+    func : injectedFunction,
+  });
+});
   }
   return (
     <>
-      <PopUp />
-      <button onClick={onClick}>Apasa-ma</button>
+    <button onClick={onClick}>Apasa-ma</button>
     </>
   );
 }

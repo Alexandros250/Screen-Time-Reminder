@@ -6,10 +6,22 @@
         "default_popup": "index.html"
     },
     "permissions": [
-        "scripting"
+        "scripting",
+        "tabs",
+        "notifications"
     ],
     "host_permissions": [
         "http://*/*",
         "https://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["background.js"]
+        }
     ]
 }
