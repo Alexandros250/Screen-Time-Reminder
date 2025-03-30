@@ -8,20 +8,16 @@
     "permissions": [
         "scripting",
         "tabs",
-        "notifications"
+        "notifications",
+        "storage",
+        "alarms",
+        "activeTab"
     ],
     "host_permissions": [
         "http://*/*",
         "https://*/*"
     ],
     "background": {
-        "service_worker": "background.js",
-        "type": "module"
-    },
-    "content_scripts": [
-        {
-            "matches": ["http://*/*", "https://*/*"],
-            "js": ["background.js"]
+        "service_worker": "background.js"
         }
-    ]
 }

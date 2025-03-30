@@ -2,25 +2,20 @@ import PopUp from './Components/PopUp/PopUp';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
-  const onClick = async () => {
-    function injectedFunction() {
-      return(
-      <>
-    <PopUp />
-      </>
-)}
 
-chrome.action.onClicked.addListener((tab) => {
-  chrome.scripting.executeScript({
-    target : {tabId : tab.id!},
-    func : injectedFunction,
-  });
+function App() {
+
+  const element:HTMLElement | null = document.getElementById("btn");
+
+element?.addEventListener("click", () => {
+    chrome.runtime.sendMessage({ time : "1" }, function (response) {
+        console.log(response);
+    });
 });
-  }
+
   return (
     <>
-    <button onClick={onClick}>Apasa-ma</button>
+      <PopUp />
     </>
   );
 }
