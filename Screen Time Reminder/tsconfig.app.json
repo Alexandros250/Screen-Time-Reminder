@@ -22,6 +22,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "sourceMap": true,
+
   },
-  "include": ["src"]
+  "include": ["src", "background1.tsx"]
 }
