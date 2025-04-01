@@ -1,11 +1,9 @@
-import PopUp from './Components/PopUp/PopUp';
+//import PopUp from './Components/PopUp/PopUp';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import Text from './Components/Text/Text';
+import Button from './Components/Button/Button';
 
-
-function App() {
-
-  const element:HTMLElement | null = document.getElementById("btn");
 
 element?.addEventListener("click", () => {
     chrome.runtime.sendMessage({ time : "1" }, function (response) {
@@ -13,11 +11,12 @@ element?.addEventListener("click", () => {
     });
 });
 
-
+function App() {
 
   return (
     <>
-      <PopUp />
+      <Text />
+      <Button />
     </>
   );
 }
