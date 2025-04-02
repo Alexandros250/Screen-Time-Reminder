@@ -1,5 +1,5 @@
 // 1800000
-const TIME_TO_APPEAR = 300000;
+const TIME_TO_APPEAR = 1800000;
 
 // This function returns a specific message based on how much time the user 
 // stayed on the web. (using closure)
@@ -26,7 +26,7 @@ function createAlarm() {
     chrome.alarms.create(
         "stay_productive",
         {
-            periodInMinutes: 0.5
+            delayInMinutes: 0.2
         }
     );
 }
@@ -59,7 +59,7 @@ setInterval(() => {
                 iconUrl: chrome.runtime.getURL("assets/icon128.png"),
                 title: "Stay Productive",
                 message: messageTimeSpend(),
-                silent: false
+                silent: true
             },
             () => {}
         ),
