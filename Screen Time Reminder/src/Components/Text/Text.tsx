@@ -1,38 +1,30 @@
-import { useRef, useEffect } from "react"
+import { useRef, useState ,useEffect } from "react"
+import Button from "../Button/Button";
+
 
 function Text() {
 
-  const textRef = useRef<HTMLHeadingElement>(null);
+    const textRef = useRef<HTMLHeadingElement>(null);
+    const [text, setText] = useState("");
 
-    const textElement = textRef.current
+    function changeText() {
+      
+        chrome.runtime.sendMessage({time: "1"}, function (response) {
+        console.log(response)
+})
 
-  function changeText() {
-    
-  
-    if (!textElement) return; // early exit if ref is not defined
-    
-    const currentText = textElement.innerHTML;
-    
-    // Toggle between 'Stopped' and 'Works'
-    if (currentText === "") {
-        textElement.innerHTML = "Stopped"
-    } else if (currentText === "Stopped") {
-        textElement.innerHTML = "Works";
-    } else {
-        textElement.innerHTML = "Stopped";
-    }
+    setText((prevText) => (prevText === "Stopped" ? "Works" : "Stopped"));
+} 
 
-  }
-
-   useEffect(() => {
-    console.log("useEffect is running!")  
-    changeText();
-
-    });
+    useEffect(() => {
+        console.log("useEffect is running!")  
+        setText("Stopped");
+}, []);
 
   return (
     <div>
-      <h1 ref={textRef}></h1>
+      <h1 ref={textRef}>{text}</h1>
+      <Button functionality={changeText}/>
     </div>
   )
 }

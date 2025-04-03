@@ -1,16 +1,12 @@
 import { useRef, useEffect } from "react"
 
+interface ButtonProps {
+    functionality: () => void;
+}
 
-function Button() {
-
+function Button({functionality}: ButtonProps) {
 
     const buttonRef = useRef<HTMLButtonElement>(null);
-
-    const handleClick = () => {
-        chrome.runtime.sendMessage({ time: "1" }, function (response) {
-            console.log(response)
-        });
-   };
 
     useEffect(() => {
         if (buttonRef.current) {
@@ -20,7 +16,7 @@ function Button() {
 
     return (
     <div>
-        <button ref={buttonRef} onClick={handleClick} id="btn">Click</button>
+        <button ref={buttonRef} onClick={functionality} id="btn">Click</button>
     </div>
   )
 }
