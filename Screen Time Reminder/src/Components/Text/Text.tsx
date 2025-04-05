@@ -7,35 +7,28 @@ function Text() {
 
   function changeText() {
     if (text === "Stopped") {
-      chrome.runtime.sendMessage({ time: "1" }, function (response) {
-        console.log(response);
-      });
+      chrome.runtime.sendMessage({ message: "create" });
     } else {
-      chrome.runtime.sendMessage({time: "2"}, function (response) {
-        console.log(response);
-      })
+      chrome.runtime.sendMessage({ message: "delete" })
     }
 
     const newText = text === "Stopped" ? "Works" : "Stopped";
     setText(newText);
 
-    // Update chrome storage accordingly
-    chrome.storage.local.set({ copac: newText === "Stopped" });
+    // Update chrome storage
+    chrome.storage.local.set({ value: newText === "Stopped" });
   }
 
   useEffect(() => {
-    console.log("useEffect is running!");
-
-    // Only set copac initially if it's undefined
-    chrome.storage.local.get(["copac"], (result) => {
-      if (typeof result.copac === "undefined") {
-        chrome.storage.local.set({ copac: true });
+//    Only set value initially if it's undefined
+    chrome.storage.local.get(["value"], (result) => {
+      if (typeof result.value === "undefined") {
         setText("Stopped");
       } else {
-        setText(result.copac ? "Stopped" : "Works");
+        setText(result.value ? "Stopped" : "Works"); //after 1st iteration changes if result === true or false
       }
     });
-  }, []);
+  }, []); // [] -> Means the effect only runs once when the component is first rendered.
 
   return (
     <div>

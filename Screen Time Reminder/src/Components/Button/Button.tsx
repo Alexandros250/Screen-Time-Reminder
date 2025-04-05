@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react"
+import { useRef } from "react"
 
 interface ButtonProps {
     functionality: () => void;
@@ -7,12 +7,6 @@ interface ButtonProps {
 function Button({functionality}: ButtonProps) {
 
     const buttonRef = useRef<HTMLButtonElement>(null);
-
-    useEffect(() => {
-        if (buttonRef.current) {
-            console.log("Button found:", buttonRef.current)
-        }
-    }, []);
 
     return (
     <div>
