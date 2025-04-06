@@ -1,9 +1,12 @@
 import { useRef, useState, useEffect } from "react";
 import Button from "../Button/Button";
+import "./Text.css"
 
 function Text() {
   const textRef = useRef<HTMLHeadingElement>(null);
   const [text, setText] = useState("");
+
+  const colorClass = text === "Stopped" ? "stopped" : "works"
 
   function changeText() {
     if (text === "Stopped") {
@@ -32,7 +35,7 @@ function Text() {
 
   return (
     <div>
-      <h1 ref={textRef}>{text}</h1>
+      <h1 ref={textRef} className={colorClass}>{text}</h1>
       <Button functionality={changeText} />
     </div>
   );

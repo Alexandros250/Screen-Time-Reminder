@@ -3,7 +3,7 @@ import './MyImage.css'
 
 function MyImage() {
     return (
-        <img className='image' src={myImage} alt="React logo" />
+        <img className='image' src={myImage} alt="Clock photo" />
     );
 }
 

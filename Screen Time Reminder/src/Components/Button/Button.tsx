@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import "./Button.css"
 
 interface ButtonProps {
     functionality: () => void;
@@ -7,6 +8,7 @@ interface ButtonProps {
 function Button({functionality}: ButtonProps) {
 
     const buttonRef = useRef<HTMLButtonElement>(null);
+
 
     return (
     <div>

@@ -47,11 +47,12 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: white;
+  color: #000000;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+button:active {
+ transform: scale(0.95);
 }
 
 @media (prefers-color-scheme: light) {
@@ -65,4 +66,24 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+.background {
+	background: linear-gradient(-45deg, #FFFFFF, #222222, #000000);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

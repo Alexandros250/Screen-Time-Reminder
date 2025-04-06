@@ -9,11 +9,11 @@ function sendTimeUsed() {
   return function timeUsed() {
     currentTimeSpend += 30;
     if (currentTimeSpend <= 30) {
-      return `Used ${Math.floor(currentTimeSpend)} min`;
+      return `Used for ${Math.floor(currentTimeSpend)} min`;
     } else if (currentTimeSpend % 60 === 0) {
-      return `Used ${Math.floor(currentTimeSpend / 60)}h`;
+      return `Used for ${Math.floor(currentTimeSpend / 60)}h`;
     } else {
-      return `Used ${Math.floor(currentTimeSpend / 60)}h and ${currentTimeSpend % 60} min`;
+      return `Used for ${Math.floor(currentTimeSpend / 60)}h and ${currentTimeSpend % 60} min`;
     }
   };
 }
@@ -47,10 +47,6 @@ function stopInterval() {
     intervalId = null;
     console.log("🛑 Interval stopped.");
   }
-
-  chrome.alarms.clear("stay_productive", (wasCleared) => {
-    console.log(wasCleared ? "⏰ Alarm cleared." : "No alarm to clear.");
-  });
 }
 
 // Request comes from Text.tsx when function changeText is triggered by pressing on <Button />
