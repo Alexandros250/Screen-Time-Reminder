@@ -2,8 +2,6 @@
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import Text from './Components/Text/Text';
-import DropdownButton from './Components/DropdownButton/DropdownButton';
-
 
 
 function App() {
@@ -11,7 +9,6 @@ function App() {
   return (
     <>
       <Text />
-      <DropdownButton />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import "./Button.css"
+import styles from "./Button.module.css"
 
 interface ButtonProps {
     functionality: () => void;
@@ -12,7 +12,7 @@ function Button({functionality}: ButtonProps) {
 
     return (
     <div>
-        <button ref={buttonRef} onClick={functionality} id="btn">Click</button>
+        <button className={styles["button__button"]} ref={buttonRef} onClick={functionality} id="btn">Click</button>
     </div>
   )
 }

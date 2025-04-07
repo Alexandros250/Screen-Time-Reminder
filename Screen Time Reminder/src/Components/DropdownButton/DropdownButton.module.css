@@ -1,14 +1,23 @@
-.btn-cont {
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.dropdown-button__btn-cont {
   display: flex;
   justify-content: center;
   align-items: center;
   height: auto;
+  width: fit-content;
   background-color: #1e1e1e;
   margin: 0;
   border: 1px solid #ffff;
   border-radius: 10px;
 }
-.button {
+.dropdown-button__button {
   background: none;
   border: none;
   cursor: pointer;
@@ -17,19 +26,19 @@
   position: relative;
   transition: background-color 0.2s ease;
 }
-.button:hover .tooltip {
+.dropdown-button__button:hover .dropdown-button__tooltip {
   background-color: rgba(255, 255, 255, 0.1);
   visibility: visible;
   opacity: 1;
 }
-.settings-btn {
-  display: block;
+.dropdown-button__settings-btn {
+  align-self: center;
   transition: transform 0.4s ease-in;
 }
-.settings-btn:hover {
+.dropdown-button__settings-btn:hover {
   transform: rotate(60deg);
 }
-.settings-btn:active {
+.dropdown-button__settings-btn:active {
   animation: rot 1s linear infinite;
 }
 @keyframes rot {
@@ -40,7 +49,7 @@
     transform: rotate(180deg);
   }
 }
-.tooltip {
+.dropdown-button__tooltip {
   visibility: hidden;
   width: 120px;
   background-color: black;
