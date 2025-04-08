@@ -1,17 +1,6 @@
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 .dropdown-button__btn-cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: auto;
-  width: fit-content;
+  width: min-content;
   background-color: #1e1e1e;
   margin: 0;
   border: 1px solid #ffff;
@@ -65,3 +54,4 @@ body {
   opacity: 0;
   transition: opacity 0.3s;
 }
+

@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import Button from "../Button/Button";
 import "./Text.css"
-import DropdownButton from "../DropdownButton/DropdownButton";
 
 function Text() {
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -38,7 +37,6 @@ function Text() {
     <div>
       <h1 ref={textRef} className={colorClass}>{text}</h1>
       <Button functionality={changeText} />
-      <DropdownButton />
     </div>
   );
 }
