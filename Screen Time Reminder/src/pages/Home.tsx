@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import Button from "../Button/Button";
-import "./Text.css"
+import Button from "../Components/Button"
+import "../css/Home.css"
+import DropdownButton from "../Components/DropdownButton";
 
-function Text() {
+function Home() {
   const textRef = useRef<HTMLHeadingElement>(null);
   const [text, setText] = useState("");
 
@@ -37,8 +38,9 @@ function Text() {
     <div>
       <h1 ref={textRef} className={colorClass}>{text}</h1>
       <Button functionality={changeText} />
+      <DropdownButton />
     </div>
   );
 }
 
-export default Text;
+export default Home;

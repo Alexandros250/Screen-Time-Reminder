@@ -1,18 +1,15 @@
 //import PopUp from './Components/PopUp/PopUp';
-import './App.css';
+import './css/App.css'
 import 'react-toastify/dist/ReactToastify.css';
-import Text from './Components/Text/Text';
-import DropdownButton from './Components/DropdownButton/DropdownButton'
+import './css/Home.css'
+import Home from './pages/Home'
 
 
 function App() {
 
   return (
     <>
-      <Text />
-      <div className='.button-wrapper'>
-      <DropdownButton />
-      </div>
+      <Home />
     </>
   );
 }
