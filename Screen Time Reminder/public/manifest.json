@@ -7,14 +7,15 @@
     },
     "permissions": [
         "notifications",
-        "storage"
+        "storage",
+        "offscreen"
     ],
     "host_permissions": [
         "http://*/*",
         "https://*/*"
     ],
     "icons": {
-        "128": "assets/icon128.png"
+        "128": "assets/icon128px.png"
     },
     "background": {
         "service_worker": "background.js"

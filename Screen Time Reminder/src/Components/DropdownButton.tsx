@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import "../css/DropdownButton.css";
 function DropdownButton() {
   return (
     <div className="btn-cont">
+      <Link to="/settings"/>
       <button className="button">
         <svg
           className="settings-btn"

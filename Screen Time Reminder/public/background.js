@@ -1,3 +1,26 @@
+
+
+// Keeps the service worker going
+async function createOffscreen() {
+  await chrome.offscreen
+    .createDocument({
+      url: "offscreen.html",
+      reasons: ["BLOBS"],
+      justification: "keep service worker running",
+    })
+    .catch(() => {});
+}
+chrome.runtime.onStartup.addListener(createOffscreen);
+self.onmessage = (e) => {}; // keepAlive
+createOffscreen();
+
+
+// Restarts the local storage every time the browser opens
+chrome.runtime.onStartup.addListener(() => {
+  chrome.storage.local.clear();
+});
+
+
 //1800000
 const TIME_TO_APPEAR = 60000;
 let intervalId = null;
@@ -13,7 +36,9 @@ function sendTimeUsed() {
     } else if (currentTimeSpend % 60 === 0) {
       return `Used for ${Math.floor(currentTimeSpend / 60)}h`;
     } else {
-      return `Used for ${Math.floor(currentTimeSpend / 60)}h and ${currentTimeSpend % 60} min`;
+      return `Used for ${Math.floor(currentTimeSpend / 60)}h and ${
+        currentTimeSpend % 60
+      } min`;
     }
   };
 }
@@ -29,7 +54,7 @@ function startInterval() {
   intervalId = setInterval(() => {
     chrome.notifications.create({
       type: "basic",
-      iconUrl: chrome.runtime.getURL("assets/icon128.png"),
+      iconUrl: chrome.runtime.getURL("assets/icon128px.png"),
       title: "Stay Productive",
       message: messageTimeSpend(),
       silent: true,
@@ -56,5 +81,5 @@ chrome.runtime.onMessage.addListener((request) => {
   } else {
     stopInterval();
   }
+  () => {};
 });
-
