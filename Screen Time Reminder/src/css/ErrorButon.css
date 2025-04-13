@@ -1,0 +1,9 @@
+.error-button {
+    background-color: rgb(30, 30, 30);
+    color: white
+}
+
+.error-button:hover {
+    background-color: white;
+    color: rgb(30, 30, 30);
+}

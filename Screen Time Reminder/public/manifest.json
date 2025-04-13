@@ -8,7 +8,8 @@
     "permissions": [
         "notifications",
         "storage",
-        "offscreen"
+        "offscreen",
+        "tabs"
     ],
     "host_permissions": [
         "http://*/*",
