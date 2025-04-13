@@ -5,19 +5,19 @@ import ArrowButtonLeft from "../Components/ArrowButtonLeft";
 import ArrowButtonRight from "../Components/ArrowButtonRight";
 import TimeBetweenNotifications from "../Components/TimeBetweenNotifications";
 function Settings() {
-
-
   return (
     <div className="settings-page">
       <div>
-        <h2>Settings</h2>
+        <h2 className="settings-text">Settings</h2>
         <div className="minutes-navbar">
-          <ArrowButtonLeft />
-          <TimeBetweenNotifications />
-          <ArrowButtonRight />
-        </div> 
+          <div className="wrapper">
+            <ArrowButtonLeft />
+            <TimeBetweenNotifications />
+            <ArrowButtonRight />
+          </div>
+        </div>
         <SwitchButton />
-        <ErrorButton /> 
+        <ErrorButton />
       </div>
       <ReturnButton />
     </div>

@@ -1,9 +1,30 @@
-import "../css/ArrowButton.css"
+import "../css/ArrowButton.css";
 
 function ArrowButtonLeft() {
   return (
     <>
-      <button>⬅️</button>
+        <li className="icon black">
+          <span className="tooltip">-</span>
+          <span>
+            <svg
+              viewBox="0 0 16 16"
+              className="bi bi-chevron-double-left"
+              fill="currentColor"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                fill-rule="evenodd"
+              ></path>
+              <path
+                d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+          </span>
+        </li>
     </>
   );
 }

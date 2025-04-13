@@ -1,9 +1,16 @@
 .error-button {
-    background-color: rgb(30, 30, 30);
-    color: white
+  background-color: #1e1e1e;
+  height: 35px;
+  width: 70px;
+  border-radius: 5px;
+  border: 0px;
 }
 
 .error-button:hover {
-    background-color: white;
-    color: rgb(30, 30, 30);
+  background-color: white;
+  color: black;
+}
+
+.error-button:active {
+  transform: translateY(+1.5px);
 }
