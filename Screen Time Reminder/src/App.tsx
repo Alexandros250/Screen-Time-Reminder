@@ -11,7 +11,7 @@ function App() {
     <>
       <MemoryRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route index path="/" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </MemoryRouter>

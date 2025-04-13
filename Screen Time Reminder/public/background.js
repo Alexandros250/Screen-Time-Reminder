@@ -1,5 +1,3 @@
-
-
 // Keeps the service worker going
 async function createOffscreen() {
   await chrome.offscreen

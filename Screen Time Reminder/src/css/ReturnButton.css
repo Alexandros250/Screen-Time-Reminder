@@ -1,4 +1,5 @@
 .return-button {
+  scale: 0.80;
   display: block;
   position: absolute;
   top: 10px;

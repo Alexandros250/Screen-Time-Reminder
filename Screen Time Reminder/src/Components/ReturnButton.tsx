@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../css/ReturnButton.css"
 function ReturnButton() {
+
+  const navigate = useNavigate();
+
+  function goToHome() {
+    navigate("/");
+  }
+
   return (
     <div>
-      <Link to="/" />
-
-      <button className="return-button">
+      <button className="return-button" onClick={goToHome}>
         <div className="return-button-box">
           <span className="return-button-elem">
             <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
