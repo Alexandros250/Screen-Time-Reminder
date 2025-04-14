@@ -1,9 +1,17 @@
-import "../css/TimeBetweenNotifications.css"
+import "../css/TimeBetweenNotifications.css";
 
 function TimeBetweenNotifications() {
-   return(<>
-    <p className="time-between-notifications">30min</p>
-   </>) 
+  return (
+    <>
+      <p
+        className="time-between-notifications"
+        title="Time Between Notifications"
+        aria-label="Time Between notifications"
+      >
+        30min
+      </p>
+    </>
+  );
 }
 
-export default TimeBetweenNotifications
+export default TimeBetweenNotifications;

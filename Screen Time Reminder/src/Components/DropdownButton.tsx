@@ -1,16 +1,21 @@
 import "../css/DropdownButton.css";
 import { useNavigate } from "react-router-dom";
 function DropdownButton() {
-
   const navigate = useNavigate();
-  
+
   function goToSettings() {
     navigate("/settings");
   }
 
   return (
     <div className="btn-cont">
-      <button id="go-to-settings" className="button" onClick={goToSettings}>
+      <button
+        id="go-to-settings"
+        className="button"
+        onClick={goToSettings}
+        title="Settings"
+        aria-label="Settings button"
+      >
         <svg
           className="settings-btn"
           xmlns="http://www.w3.org/2000/svg"

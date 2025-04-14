@@ -3,8 +3,8 @@ import "../css/ArrowButton.css";
 function ArrowButtonRight() {
   return (
     <>
-        <li className="icon black">
-          <span className="tooltip">+</span>
+        <li className="icon black" title="+ Minutes" aria-label="+ Minutes">
+          <span className="tooltip" >+</span>
           <span>
             <svg
               viewBox="0 0 16 16"

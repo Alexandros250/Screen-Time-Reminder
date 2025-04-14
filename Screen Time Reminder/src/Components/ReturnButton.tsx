@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import "../css/ReturnButton.css"
+import "../css/ReturnButton.css";
 function ReturnButton() {
-
   const navigate = useNavigate();
 
   function goToHome() {
@@ -10,7 +9,12 @@ function ReturnButton() {
 
   return (
     <div>
-      <button className="return-button" onClick={goToHome}>
+      <button
+        className="return-button"
+        onClick={goToHome}
+        title="Return"
+        aria-label="Return button"
+      >
         <div className="return-button-box">
           <span className="return-button-elem">
             <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">

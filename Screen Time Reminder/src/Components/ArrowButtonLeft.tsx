@@ -3,7 +3,7 @@ import "../css/ArrowButton.css";
 function ArrowButtonLeft() {
   return (
     <>
-        <li className="icon black">
+        <li className="icon black" title="- Minutes" aria-label="- Minutes">
           <span className="tooltip">-</span>
           <span>
             <svg

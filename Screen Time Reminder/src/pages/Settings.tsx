@@ -5,6 +5,8 @@ import ArrowButtonLeft from "../Components/ArrowButtonLeft";
 import ArrowButtonRight from "../Components/ArrowButtonRight";
 import TimeBetweenNotifications from "../Components/TimeBetweenNotifications";
 function Settings() {
+
+
   return (
     <div className="settings-page">
       <div>

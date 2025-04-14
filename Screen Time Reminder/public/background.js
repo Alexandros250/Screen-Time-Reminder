@@ -12,16 +12,15 @@ chrome.runtime.onStartup.addListener(createOffscreen);
 self.onmessage = (e) => {}; // keepAlive
 createOffscreen();
 
-
 // Restarts the local storage every time the browser opens
 chrome.runtime.onStartup.addListener(() => {
   chrome.storage.local.clear();
 });
 
-
 //1800000
 const TIME_TO_APPEAR = 60000;
 let intervalId = null;
+let silent = false;
 
 // Closure -> remembers the value of currentTimeSpend
 function sendTimeUsed() {
@@ -49,13 +48,17 @@ function startInterval() {
     return;
   }
 
+
+  chrome.storage.local.get("soundEnabled", (result) => {
+    silent = result.soundEnabled === false;
+  })
   intervalId = setInterval(() => {
     chrome.notifications.create({
       type: "basic",
       iconUrl: chrome.runtime.getURL("assets/icon128px.png"),
       title: "Stay Productive",
       message: messageTimeSpend(),
-      silent: true,
+      silent: silent,
     });
 
     console.log("✅ Notification sent!");
@@ -68,7 +71,7 @@ function stopInterval() {
   if (intervalId !== null) {
     clearInterval(intervalId);
     intervalId = null;
-    console.log("🛑 Interval stopped.");
+    console.log("🛑 Interval stopped / Reseted if sound button pressed.");
   }
 }
 

@@ -1,4 +1,4 @@
-import "../css/ErrorButon.css"
+import "../css/ErrorButon.css";
 
 function ErrorButton() {
   const openLink = () => {
@@ -7,7 +7,16 @@ function ErrorButton() {
     });
   };
 
-  return <button className="error-button" onClick={openLink}>Error ❌</button>;
+  return (
+    <button
+      className="error-button"
+      onClick={openLink}
+      title="Error"
+      aria-label="Error button"
+    >
+      Error ❌
+    </button>
+  );
 }
 
-export default ErrorButton
+export default ErrorButton;

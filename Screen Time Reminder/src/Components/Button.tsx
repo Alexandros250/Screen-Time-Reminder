@@ -11,6 +11,8 @@ function Button({ functionality }: ButtonProps) {
   return (
     <div>
       <button
+        aria-label="Start/Stop button"
+        title="Start/Stop"
         className="main-button"
         ref={buttonRef}
         onClick={functionality}
