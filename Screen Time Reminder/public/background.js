@@ -48,11 +48,11 @@ function startInterval() {
     return;
   }
 
-
-  chrome.storage.local.get("soundEnabled", (result) => {
-    silent = result.soundEnabled === false;
-  })
   intervalId = setInterval(() => {
+    // Checks soundEnabled
+    chrome.storage.local.get("soundEnabled", (result) => {
+      silent = result.soundEnabled === false;
+    });
     chrome.notifications.create({
       type: "basic",
       iconUrl: chrome.runtime.getURL("assets/icon128px.png"),

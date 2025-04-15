@@ -10,7 +10,6 @@ function SwitchButton() {
       if (typeof result.soundEnabled === "boolean") {
         setAudio(result.soundEnabled);
       } else {
-        // first time opening extension, default to true
         setAudio(true);
         chrome.storage.local.set({ soundEnabled: true });
       }
@@ -21,7 +20,6 @@ function SwitchButton() {
     const newValue = !audio;
     setAudio(newValue);
     chrome.storage.local.set({ soundEnabled: newValue });
-    chrome.runtime.sendMessage({ audio: newValue });
   };
 
   return (
