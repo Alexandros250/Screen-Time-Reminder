@@ -1,7 +1,7 @@
-import { useRef, useState} from "react";
+import { useRef, useState } from "react";
 import Button from "../Components/Button";
-import "../css/Home.css";
 import DropdownButton from "../Components/DropdownButton";
+import "../css/Home.css";
 
 function Home() {
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -22,19 +22,23 @@ function Home() {
     // Update chrome storage
     chrome.storage.local.set({ value: newText === "Stopped" });
   }
-  
-  
-    chrome.storage.local.get(["value"], (result) => {
-      if (typeof result.value === "undefined") {
-        setText("Stopped");
-      } else {
-        setText(result.value ? "Stopped" : "Works"); //after 1st iteration changes if result === true or false
-      }
-    });
+
+  chrome.storage.local.get(["value"], (result) => {
+    if (typeof result.value === "undefined") {
+      setText("Stopped");
+    } else {
+      setText(result.value ? "Stopped" : "Works"); //after 1st iteration changes if result === true or false
+    }
+  });
 
   return (
     <div>
-      <h1 ref={textRef} className={colorClass}>
+      <h1
+        ref={textRef}
+        className={colorClass}
+        aria-label="Notifications Work"
+        title="Notifications Work"
+      >
         {text}
       </h1>
       <Button functionality={changeText} />

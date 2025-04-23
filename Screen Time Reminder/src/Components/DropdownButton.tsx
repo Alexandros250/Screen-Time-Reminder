@@ -1,8 +1,8 @@
 import "../css/DropdownButton.css";
 import { useNavigate } from "react-router-dom";
 function DropdownButton() {
+  
   const navigate = useNavigate();
-
   function goToSettings() {
     navigate("/settings");
   }

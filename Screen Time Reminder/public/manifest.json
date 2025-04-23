@@ -1,24 +1,17 @@
 {
-    "manifest_version": 3,
-    "version": "1.0.0",
-    "name": "Screen Time Reminder Extension",
-    "action": {
-        "default_popup": "index.html"
-    },
-    "permissions": [
-        "notifications",
-        "storage",
-        "offscreen",
-        "tabs"
-    ],
-    "host_permissions": [
-        "http://*/*",
-        "https://*/*"
-    ],
-    "icons": {
-        "128": "assets/icon128px.png"
-    },
-    "background": {
-        "service_worker": "background.js"
-        }
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "name": "Screen Time Reminder Extension",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["notifications", "storage", "offscreen"],
+  "icons": {
+    "16": "assets/icon128px.png",
+    "48": "assets/icon128px.png",
+    "128": "assets/icon128px.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
 }

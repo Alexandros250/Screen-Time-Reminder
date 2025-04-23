@@ -7,7 +7,7 @@ This Chrome extension helps users stay focused by sending periodic productivity 
 - ✅ Sends Chrome notifications every `TIME_TO_APPEAR` ms 
 - 🕒 Dynamic messages showing time spent (e.g., `Used 30 min`, `Used 1h and 30 min`)
 - 🛑 Start and stop functionality via popup interaction
-- 🔁 Smart interval management using `setInterval` and closures
+- 🔁 Smart interval management using `setInterval`
 
 ## 🧠 Technologies Used
 

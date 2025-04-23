@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "../css/ReturnButton.css";
+
 function ReturnButton() {
   const navigate = useNavigate();
-
   function goToHome() {
     navigate("/");
   }
