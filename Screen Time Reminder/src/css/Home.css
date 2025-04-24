@@ -1,8 +1,8 @@
-.works {
+.enabled {
     color: #169976;
 }
 
-.stopped {
+.disabled {
     color: #A62C2C;
 }
 

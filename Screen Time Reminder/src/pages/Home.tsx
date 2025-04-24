@@ -8,7 +8,7 @@ function Home() {
   const [text, setText] = useState("");
 
   // This changes the css for the text.
-  const colorClass = text === "Off" ? "off" : "on";
+  const colorClass = text === "Disabled" ? "disabled" : "enabled";
 
 
 // -------------------------------------------------------------------------------------------------- //
@@ -16,29 +16,29 @@ function Home() {
 
 
   function changeText() {
-    if (text === "Off") {
+    if (text === "Disabled") {
       chrome.runtime.sendMessage({ message: "create" });
     } else {
       chrome.runtime.sendMessage({ message: "delete" });
     }
 
-    const newText = text === "Off" ? "On" : "Off";
+    const newText = text === "Disabled" ? "Enabled" : "Disabled";
     setText(newText);
 
     // Update chrome storage
-    chrome.storage.local.set({ value: newText === "Off" }); // This saves value as a boolean.
+    chrome.storage.local.set({ value: newText === "Disabled" }); // This saves value as a boolean.
   }
 
 
 // --------------------------------------------------------------------------------------------------- //
-// Initially when the browser is oppened, the extension is set by default to Off.
+// Initially when the browser is oppened, the extension is set by default to Disabled.
 
 
   chrome.storage.local.get(["value"], (result) => {
     if (typeof result.value === "undefined") {
-      setText("Off");
+      setText("Disabled");
     } else {
-      setText(result.value ? "Off" : "On"); //after 1st iteration text changes if result === true || false
+      setText(result.value ? "Disabled" : "Enabled"); //after 1st iteration text changes if result === true || false
     }
   });
 
@@ -50,8 +50,8 @@ function Home() {
       <h1
         ref={textRef}
         className={colorClass}
-        aria-label="Notification On/Off"
-        title="Notifications On/Off"
+        aria-label="Notification ON/OFF"
+        title="Notifications ON/OFF"
       >
         {text}
       </h1>

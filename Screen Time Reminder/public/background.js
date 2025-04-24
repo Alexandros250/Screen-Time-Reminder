@@ -33,8 +33,8 @@ chrome.runtime.onStartup.addListener(() => {
 // -------------------------------------------------------------------------------------------------//
 // This part returns a dynamic message based on how much time has passed.
 
-// 1800000
-const TIME_TO_APPEAR = 30000;
+
+const TIME_TO_APPEAR = 1800000; // Every 30 minutes.
 let notificationInterval = null;
 let playSound = false;
 
