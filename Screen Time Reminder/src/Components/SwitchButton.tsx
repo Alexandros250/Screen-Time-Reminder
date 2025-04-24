@@ -17,7 +17,7 @@ function SwitchButton() {
         chrome.storage.local.set({ shouldPlaySound: true });
       }
     });
-  }, []); // useEffect() runs only once when popup mounts because [] are empty.
+  }, []); // useEffect() runs only once when popup mounts because the square brackets are empty.
 
 
   // After it is initialized in useEffect whenever the switch button is pressed, the value of shouldPlaySound changes

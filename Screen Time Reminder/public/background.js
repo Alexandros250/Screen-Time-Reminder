@@ -11,9 +11,8 @@ async function createOffscreen() {
     .catch(() => {});
 }
 
-
 chrome.runtime.onStartup.addListener(createOffscreen);
-self.onmessage = (e) => {}; 
+self.onmessage = (e) => {};
 createOffscreen();
 
 
@@ -22,8 +21,8 @@ createOffscreen();
 
 
 chrome.runtime.onStartup.addListener(() => {
-  chrome.storage.local.get(null, (items) => { // Passing null means get everything
-    const keysToRemove = Object.keys(items).filter( //(items) is an JavaScript object (key: value)
+  chrome.storage.local.get(null, (items) => {  // Passing null means get everything
+    const keysToRemove = Object.keys(items).filter( // (items) is an JavaScript object (key: value)
       (key) => key !== "shouldPlaySound"
     );
     chrome.storage.local.remove(keysToRemove);
@@ -44,7 +43,6 @@ let playSound = false;
 function sendTimeUsed() {
   let currentTimeSpend = 0;
 
-
   return function timeUsed() {
     currentTimeSpend += 30;
     if (currentTimeSpend <= 30) {
@@ -59,42 +57,33 @@ function sendTimeUsed() {
   };
 }
 
+
 const messageTimeSpend = sendTimeUsed();
 
 
 // -------------------------------------------------------------------------------------------------//
-// Starts/Stops setInterval. This starts the timer and when it has passed, a notification is sent,
-// after that the timmer starts again.
+// Starts or stops the interval timer. When started, the timer runs and sends a notification after it finishes.
+// Then, the timer resets and starts again.
 
 
 function startInterval() {
-  if (notificationInterval !== null) {
-    console.log("Interval already running, not starting again.");
-    return;
-  }
+  // Gets the stored sound setting from Chrome storage.
+  // "silent" controls sound: sound ON -> silent = false, sound OFF -> silent = true.
 
 
   notificationInterval = setInterval(() => {
-
-    // This gets the local value stored inside Chrome storage.
-    // The logic is a little bit unintuitive becase the key for notification.create is silent
-    // So for the sound to be on --> silent === false , if you want sound off --> silent === true
-    // If result.shouldPlaySound is false, the statement will be false because: false === true --> returns false
-    // Otherwise true === true --> returns true
     chrome.storage.local.get("shouldPlaySound", (result) => {
       playSound = result.shouldPlaySound === true; // playSound is a global variable declared in this file.
 
+      chrome.notifications.create({
+        type: "basic",
+        iconUrl: chrome.runtime.getURL("assets/icon128px.png"),
+        title: "Stay Productive",
+        message: messageTimeSpend(),
+        silent: !playSound, // here we put the opposite of playSound because the key is "silent"
+      });
 
-    chrome.notifications.create({
-      type: "basic",
-      iconUrl: chrome.runtime.getURL("assets/icon128px.png"),
-      title: "Stay Productive",
-      message: messageTimeSpend(),
-      silent: !playSound, // here we put the oposite  of playSound because the key is silent
-    });
-
-
-    console.log("✅ Notification sent!");
+      console.log("✅ Notification sent!");
     });
   }, TIME_TO_APPEAR);
 
@@ -121,7 +110,6 @@ chrome.runtime.onMessage.addListener((request) => {
   } else {
     stopInterval();
   }
-  () => {};
 });
 
 
