@@ -1,5 +1,7 @@
 # ⏰ Screen Time Reminder - Stay Productive - Chrome Extension
 
+🏪 The extension is now available in the Chrome Web Store. Please leave it a 👍: https://chromewebstore.google.com/detail/screen-time-reminder/colakcadhnhdlnhdadpgngdfmlhchjbe
+
 This Chrome extension helps users stay focused by sending periodic productivity reminders. Every 30 minute, it displays a dynamic notification showing how much time has passed.
 
 ## ✨ Features
